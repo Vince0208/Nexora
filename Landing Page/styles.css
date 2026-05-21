@@ -1,0 +1,274 @@
+:root {
+  --dark-purple: #2D1B4E;
+  --medium-purple: #4A2D7A;
+  --soft-pink: #F8BBD0;
+  --vibrant-pink: #FF4081;
+}
+
+* {
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #1E1233;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  padding: 0 0 0 5%;
+  background: linear-gradient(135deg, var(--dark-purple), var(--medium-purple));
+  color: var(--soft-pink);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  height: 70px;
+}
+
+.brand-name {
+  font-weight: bold;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: var(--soft-pink);
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  height: 100%;
+  gap: 0px;
+  margin: 0;
+}
+
+.links li {
+  height: 100%;
+}
+
+.links a {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  border-radius: 0px;
+  color: var(--soft-pink);
+  text-decoration: none;
+  padding: 0px 25px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--vibrant-pink);
+  background-color: rgba(255, 64, 129, 0.2);
+}
+
+.hamburger-icon span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--soft-pink);
+  margin-bottom: 0;
+  border-radius: 2px;
+  transition: 0.4s;
+}
+
+#logo {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#logo:hover {
+  filter: drop-shadow(0 0 5px var(--vibrant-pink));
+  transition: 0.3s ease;
+}
+
+.hamburger-icon {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .links {
+    margin: 0;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    background: var(--dark-purple);
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 15px;
+    padding-top: 80px;
+    display: flex;
+    transition: 0.4s ease-in-out;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    padding-left: 0;
+  }
+  
+  .links li {
+    height: auto;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .links a {
+    height: 45px;
+    width: 100%;
+    justify-content: center;
+    padding: 15px 0;
+  }
+  
+  .hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    gap: 5px;
+    align-self: center;
+    margin-right: 5%;
+    padding: 0;
+  }
+  
+  .links.active {
+    right: 0;
+  }
+  
+  .hamburger-icon.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  
+  .hamburger-icon.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger-icon.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  
+  header {
+    width: 100%;
+    margin-top: 0;
+    overflow: hidden;
+  }
+  
+  .mobile-header {
+    position: relative;
+    width: 100%;
+    height: 550px;
+  }
+  
+  #headerBackgroundMobile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .header-text {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0px 20px;
+    color: white;
+  }
+  
+  .header-text h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 2.2rem;
+    margin: 0 0 5px 0;
+    color: var(--vibrant-pink);
+    width: 100%;
+    border: none;
+  }
+  
+  .type-line-1, .type-line-2 {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid transparent;
+    width: 0;
+    max-width: max-content;
+  }
+  
+  .type-line-1 {
+    animation:
+      typing 1.5s steps(15, end) forwards,
+      blink-caret 0.75s step-end;
+  }
+  
+  .type-line-2 {
+    animation:
+      typing 1.5s steps(15, end) 1.5s forwards,
+      blink-caret 0.75s step-end infinite 1.5s;
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--soft-pink); }
+  }
+  
+  .header-text h5 {
+    font-size: 1rem;
+    color: var(--soft-pink);
+    max-width: 85%;
+    margin-bottom: 50px;
+  }
+  
+  #ctaButtons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  #ctaButtons button {
+    border: 5px solid var(--vibrant-pink);
+    border-radius: 25px;
+    color: var(--vibrant-pink);
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
+  
+  #ctaButtons #learnMore {
+    color: #FFF;
+    background-color: var(--vibrant-pink);
+  }
+  
+  #ctaButtons #joinUs {
+    background: rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+  }
+  
+  #ctaButtons #joinUs:hover {
+    background-color: var(--vibrant-pink);
+    color: #FFF;
+  }
+}
