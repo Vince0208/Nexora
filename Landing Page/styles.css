@@ -30,7 +30,7 @@ body {
   width: 100%;
   z-index: 100;
   height: 70px;
-}
+} 
 
 .brand-name {
   font-weight: bold;
@@ -99,7 +99,15 @@ body {
   display: none;
 }
 
+.mobile-header {
+  display: none;
+}
+
 @media (max-width: 768px) {
+  .desktop-header {
+    display: none !important; /* Hides the desktop banner on small screens */
+  }
+
   .links {
     margin: 0;
     position: fixed;
@@ -118,20 +126,20 @@ body {
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
     padding-left: 0;
   }
-  
+
   .links li {
     height: auto;
     width: 100%;
     text-align: center;
   }
-  
+
   .links a {
     height: 45px;
     width: 100%;
     justify-content: center;
     padding: 15px 0;
   }
-  
+
   .hamburger-icon {
     display: flex;
     flex-direction: column;
@@ -144,35 +152,36 @@ body {
     margin-right: 5%;
     padding: 0;
   }
-  
+
   .links.active {
     right: 0;
   }
-  
+
   .hamburger-icon.active span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
-  
+
   .hamburger-icon.active span:nth-child(2) {
     opacity: 0;
   }
-  
+
   .hamburger-icon.active span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
-  
+
   header {
     width: 100%;
     margin-top: 0;
     overflow: hidden;
   }
-  
+
   .mobile-header {
+    display: block !important; /* Turns mobile view back on for tiny devices */
     position: relative;
     width: 100%;
     height: 550px;
   }
-  
+
   #headerBackgroundMobile {
     position: absolute;
     top: 0;
@@ -181,94 +190,103 @@ body {
     height: 100%;
     object-fit: cover;
   }
-  
-  .header-text {
+
+  .header-text-mobile {
     position: relative;
     z-index: 10;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     height: 100%;
-    padding: 0px 20px;
+    padding: 0px 30px;
     color: white;
   }
-  
-  .header-text h1 {
+
+  .header-text-mobile h1 {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     font-size: 2.2rem;
-    margin: 0 0 5px 0;
+    margin: 0 0 20px 0;
     color: var(--vibrant-pink);
     width: 100%;
     border: none;
   }
-  
+
   .type-line-1, .type-line-2 {
-    display: inline-block;
+    display: block;
     overflow: hidden;
     white-space: nowrap;
     border-right: 3px solid transparent;
     width: 0;
     max-width: max-content;
   }
-  
+
   .type-line-1 {
     animation:
       typing 1.5s steps(15, end) forwards,
       blink-caret 0.75s step-end;
   }
-  
+
   .type-line-2 {
     animation:
       typing 1.5s steps(15, end) 1.5s forwards,
       blink-caret 0.75s step-end infinite 1.5s;
   }
-  
+
   @keyframes typing {
     from { width: 0; }
     to { width: 100%; }
   }
-  
+
   @keyframes blink-caret {
     from, to { border-color: transparent; }
     50% { border-color: var(--soft-pink); }
   }
-  
-  .header-text h5 {
+
+  .header-text-mobile h5 {
     font-size: 1rem;
     color: var(--soft-pink);
-    max-width: 85%;
+    max-width: 90%;
+    margin-top: 0;
     margin-bottom: 50px;
+    text-align: left;
   }
-  
-  #ctaButtons {
+
+  #ctaButtons-mobile {
     display: flex;
     gap: 10px;
   }
-  
-  #ctaButtons button {
+
+  #ctaButtons-mobile button {
     border: 5px solid var(--vibrant-pink);
     border-radius: 25px;
-    color: var(--vibrant-pink);
+    cursor: pointer;
     padding: 10px 20px;
     font-weight: bold;
     font-size: 0.8rem;
   }
-  
-  #ctaButtons #learnMore {
-    color: #FFF;
-    background-color: var(--vibrant-pink);
+
+  #ctaButtons-mobile #learnMore-mobile {
+    color: #FFF !important;
+    background-color: var(--vibrant-pink) !important;
+    transition: all 0.3s ease;
   }
-  
-  #ctaButtons #joinUs {
-    background: rgba(0, 0, 0, 0.2);
+
+  #ctaButtons-mobile #learnMore-mobile:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(255, 64, 129, 0.5);
+  }
+
+  #ctaButtons-mobile #joinUs-mobile {
+    background: rgba(0, 0, 0, 0.2) !important;
+    color: #FFF;
     transition: all 0.5s ease;
   }
-  
-  #ctaButtons #joinUs:hover {
+
+  #ctaButtons-mobile #joinUs-mobile:hover {
     background-color: var(--vibrant-pink);
-    color: #FFF;
+    color: #FFF !important;
   }
 }
