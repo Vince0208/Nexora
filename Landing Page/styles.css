@@ -395,13 +395,13 @@ header {
   }
 
   #ctaButtons-mobile #joinUs-mobile {
-    background: rgba(0, 0, 0, 0.2) !important;
+    background: rgba(0, 0, 0, 0.2);
     color: #FFF;
     transition: all 0.5s ease;
   }
 
   #ctaButtons-mobile #joinUs-mobile:hover {
     background-color: var(--vibrant-pink);
-    color: #FFF !important;
+    color: #FFF;
   }
 }
