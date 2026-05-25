@@ -404,4 +404,48 @@ header {
     background-color: var(--vibrant-pink);
     color: #FFF;
   }
+
+  #features {
+    margin-top: 40px;
+    padding: 0 16px;
+  }
+
+  #features #featureButtonTabs {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    gap: 16px;
+    padding: 6px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-width: max-content;
+    margin: 0 auto 40px auto;
+  }
+
+  #features #featureButtonTabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  #features #featureButtonTabs .tabButtons {
+    flex-shrink: 0;
+    background: transparent;
+    border: none;
+    color: var(--soft-pink);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 10px 22px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  #features #featureButtonTabs .tabButtons.active {
+    background-color: var(--vibrant-pink);
+    color: #FFF;
+    box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4);
+  }
 }
