@@ -448,4 +448,93 @@ header {
     color: #FFF;
     box-shadow: 0 4px 15px rgba(255, 64, 129, 0.4);
   }
+
+  #features #featureCards {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #features #featureCards::-webkit-scrollbar {
+    display: none;
+  }
+
+  #features #featureCards .cardsSlider {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+    padding: 0 20px;
+    width: max-content;
+  }
+
+  #featureCards .cardsSlider .featureCards {
+    flex-shrink: 0;
+    width: 280px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 24px;
+    box-sizing: border-box;
+    scroll-snap-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-image: linear-gradient(180deg, rgba(74, 45, 122, 0.2) 0%, rgba(30, 18, 51, 0) 100%);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  #featureCards .cardIconWrapper {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 64, 129, 0.1);
+    border: 1px solid rgba(255, 64, 129, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #featureCards .cardIcon {
+    font-size: 1.4rem;
+  }
+
+  #featureCards .featureCards h3 {
+    color: #FFF;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  #featureCards .featureCards p {
+    color: var(--soft-pink);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  #featureCards .cardActionLinks {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--vibrant-pink);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: auto;
+    transition: all 0.3s ease;
+  }
+
+  #featureCards .cardActionLinks .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  #featureCards .cardActionLinks:hover .arrow {
+    transform: translateX(5px);
+  }
 }
