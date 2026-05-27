@@ -625,3 +625,77 @@ header {
     transform: translateX(5px);
   }
 }
+
+@media (min-width: 769px) {
+  #navbar {
+    padding: 0 5%;
+    align-items: center;
+  }
+
+  .links {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 40px;
+    height: 100%;
+    width: auto;
+    position: static;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .menuScrollContainer {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 10px;
+    height: 100%;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .menuScrollContainer li, .mobileAuthCtas li {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .mobileAuthCtas {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 15px;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    border-top: none !important;
+  }
+
+  .mobileAuthCtas a {
+    padding: 8px 20px !important;
+    border-radius: 20px !important;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+
+  .mobileAuthCtas .loginButton {
+    border: 1px solid rgba(255, 64, 129, 0.4) !important;
+    color: var(--soft-pink) !important;
+  }
+
+  .mobileAuthCtas .loginButton:hover {
+    background: rgba(255, 64, 129, 0.1) !important;
+    color: #FFF !important;
+    border-color: var(--vibrant-pink) !important;
+  }
+
+  .mobileAuthCtas .signupButton {
+    background-color: var(--vibrant-pink) !important;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2) !important;
+  }
+
+  .mobileAuthCtas .signupButton:hover {
+    color: #FFF !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 64, 129, 0.4) !important;
+  }
+}
