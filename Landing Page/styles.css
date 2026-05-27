@@ -224,35 +224,114 @@ header {
   }
 
   .links {
-    margin: 0;
-    position: fixed;
     top: 0;
+    position: fixed;
+    margin: 0;
     right: -100%;
     height: 100vh;
-    width: 70%;
-    background: var(--dark-purple);
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: flex-start;
-    gap: 15px;
-    padding-top: 80px;
+    width: 75%;
+    background: rgba(30, 18, 51, 0.75);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     display: flex;
-    transition: 0.4s ease-in-out;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-    padding-left: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    padding: 90px 24px 40px 24px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
   }
 
-  .links li {
+  .menuScrollContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    flex-grow: 1;
+    max-height: calc(100vh - 260px);
+    padding-right: 4px;
+  }
+
+  .menuScrollContainer::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .menuScrollContainer::-webkit-scrollbar-thumb {
+    background: rgba(255, 64, 129, 0.3);
+    border-radius: 4px;
+  }
+
+  .menuScrollContainer li {
     height: auto;
     width: 100%;
-    text-align: center;
+    list-style: none;
   }
 
-  .links a {
-    height: 45px;
+  .menuScrollContainer a {
+    display: flex;
+    height: auto;
     width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 14px 20px;
+    color: rgba(248, 187, 208, 0.6);
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .menuScrollContainer a.active {
+    color: #FFF !important;
+    background:rgba(255, 64, 129, 0.15);
+    border-left: 4px solid var(--vibrant-pink);
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(255, 64, 129, 0.4);
+  }
+
+  .links a:not(.active):hover {
+    color: var(--soft-pink);
+    background-color: rgba(255, 255, 255, 0.04);
+  }
+
+  .mobileAuthCtas {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .mobileAuthCtas a {
     justify-content: center;
-    padding: 15px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 12px 0;
+  }
+
+  .mobileAuthCtas .loginButton {
+    color: #FFF;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .mobileAuthCtas .loginButton:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #FFF;
+  }
+
+  .mobileAuthCtas .signupButton {
+    color: #FFF;
+    background-color: var(--vibrant-pink);
+    box-shadow: 0 4px 15px rgba(255, 64, 129, 0.3);
+  }
+
+  .mobileAuthCtas .signupButton:hover {
+    background-color: #FF2A70;
+    box-shadow: 0 6px 20px rgba(255, 64, 129, 0.5);
   }
 
   .hamburger-icon {
@@ -261,11 +340,19 @@ header {
     background: none;
     border: none;
     cursor: pointer;
-    z-index: 1100;
     gap: 5px;
-    align-self: center;
-    margin-right: 5%;
     padding: 0;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1200;
+  }
+
+  .hamburger-icon.active {
+    position: fixed;
+    top: 35px;
+    right: 5%;
   }
 
   .links.active {
