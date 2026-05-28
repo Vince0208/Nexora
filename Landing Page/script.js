@@ -31,22 +31,73 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   sliderViewport.addEventListener("scroll", () => {
-    const viewCenter = sliderViewport.scrollLeft + (sliderViewport.offsetWidth / 2)
+    if (window.innerWidth < 769) {
+      const viewCenter = sliderViewport.scrollLeft + (sliderViewport.offsetWidth / 2)
 
-    cards.forEach((card) => {
-      const cardLeft = card.offsetLeft
-      const cardRight = cardLeft + card.offsetWidth
+      cards.forEach((card) => {
+        const cardLeft = card.offsetLeft
+        const cardRight = cardLeft + card.offsetWidth
 
-      if (viewCenter >= cardLeft && viewCenter <= cardRight) {
-        const cardIndex = card.getAttribute("data-index")
-        const currentActiveTab = document.querySelector("#features #featureButtonTabs .tabButtons.active")
-        const matchingTab = document.querySelector(`#features #featureButtonTabs .tabButtons[data-index='${cardIndex}']`)
+        if (viewCenter >= cardLeft && viewCenter <= cardRight) {
+          const cardIndex = card.getAttribute("data-index")
+          const currentActiveTab = document.querySelector("#features #featureButtonTabs .tabButtons.active")
+          const matchingTab = document.querySelector(`#features #featureButtonTabs .tabButtons[data-index='${cardIndex}']`)
 
-        if (currentActiveTab !== matchingTab) {
-          currentActiveTab.classList.remove("active")
-          matchingTab.classList.add("active")
+          if (currentActiveTab !== matchingTab) {
+            currentActiveTab.classList.remove("active")
+            matchingTab.classList.add("active")
+          }
         }
-      }
-    })
+      })
+    }
+  })
+
+  let autoScrollTimer = null
+  let interactionCooldownTimeout = null
+  let isUserInteracting = false
+
+  function startAutoScroll() {
+    if (window.innerWidth >= 769) {
+      stopAutoScroll()
+
+      autoScrollTimer = setInterval(() => {
+        if (!isUserInteracting) {
+          sliderViewport.scrollLeft += 1
+
+          const halfScrollWidth = sliderViewport.scrollWidth / 2
+
+          if (sliderViewport.scrollLeft >= halfScrollWidth) {
+            sliderViewport.scrollLeft = 0
+          }
+        }
+      }, 20)
+    }
+  }
+
+  function stopAutoScroll() {
+    if (autoScrollTimer) clearInterval(autoScrollTimer)
+  }
+
+  function  handleUserInteraction() {
+    isUserInteracting = true
+
+    if (interactionCooldownTimeout) clearTimeout(interactionCooldownTimeout)
+    
+    interactionCooldownTimeout = setTimeout(() => {
+      isUserInteracting = false
+    }, 2000);
+  }
+
+  sliderViewport.addEventListener("wheel", handleUserInteraction, { passive: true})
+  sliderViewport.addEventListener("touchmove", handleUserInteraction, { passive: true })
+  sliderViewport.addEventListener("touchstart", handleUserInteraction, { passive: true })
+  sliderViewport.addEventListener("mouseenter", () => { isUserInteracting = true })
+  sliderViewport.addEventListener("mouseleave", () => { isUserInteracting = false })
+
+  startAutoScroll()
+
+  window.addEventListener("resize", () => {
+    stopAutoScroll()
+    startAutoScroll()
   })
 })

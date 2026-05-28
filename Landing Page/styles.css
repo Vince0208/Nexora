@@ -220,7 +220,7 @@ header {
 
 @media (max-width: 768px) {
   .desktop-header {
-    display: none !important; /* Hides the desktop banner on small screens */
+    display: none !important;
   }
 
   .links {
@@ -378,7 +378,7 @@ header {
   }
 
   .mobile-header {
-    display: block !important; /* Turns mobile view back on for tiny devices */
+    display: block !important;
     position: relative;
     width: 100%;
     height: 550px;
@@ -697,5 +697,105 @@ header {
     color: #FFF !important;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(255, 64, 129, 0.4) !important;
+  }
+
+  #features {
+    margin-top: 80px;
+    padding: 0;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+  }
+
+  #features #featureCards {
+    display: block;
+    width: 100%;
+    overflow-x: hidden; 
+    scroll-snap-type: none;
+    padding: 30px 0;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  }
+
+  #features #featureCards .cardsSlider {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    width: max-content; 
+    padding: 0 5%;
+    gap: 32px;
+  }
+
+  #featureCards .cardsSlider .featureCards {
+    display: flex !important;
+    flex-direction: column;
+    flex-shrink: 0 !important;
+    width: 320px !important;
+    height: auto;
+    min-height: 260px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 24px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  #featureCards .cardsSlider .featureCards:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 64, 129, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    background-image: linear-gradient(180deg, rgba(74, 45, 122, 0.3) 0%, rgba(30, 18, 51, 0.05) 100%);
+  }
+
+  #featureCards .cardIconWrapper {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(255, 64, 129, 0.1);
+    border: 1px solid rgba(255, 64, 129, 0.2);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  #featureCards .cardIcon {
+    font-size: 1.4rem;
+  }
+
+  #featureCards .cardsSlider .featureCards h3 {
+    color: #FFF;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+  }
+
+  #featureCards .cardsSlider .featureCards p {
+    color: var(--soft-pink);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-weight: 400;
+    margin: 0 0 20px 0;
+  }
+
+  #featureCards .cardActionLinks {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--vibrant-pink);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: auto;
+    transition: all 0.3s ease;
+  }
+
+  #featureCards .cardActionLinks .arrow {
+    transition: transform 0.3s ease;
+  }
+
+  #featureCards .cardActionLinks:hover .arrow {
+    transform: translateX(5px);
   }
 }
