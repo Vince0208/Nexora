@@ -218,6 +218,14 @@ header {
   }
 }
 
+.featuresWrapper {
+  width: 100%;
+}
+
+.featuresDesktopAnchor {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .desktop-header {
     display: none !important;
@@ -700,19 +708,69 @@ header {
   }
 
   #features {
-    margin-top: 80px;
-    padding: 0;
+    margin-top: 0px;
+    padding: 120px 0;
     width: 100%;
     overflow: hidden;
     display: block;
+    border-top: 1px solid rgba(255, 64, 129, 0.15);
+    box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  #features .featuresWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 5%;
+    gap: 60px;
+  }
+
+  #features .featuresDesktopAnchor {
+    display: flex !important;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 340px;
+    z-index: 10;
+    text-align: left;
+    margin-top: -20px;
+  }
+
+  #features .featuresTag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--vibrant-pink);
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+
+  #features .featuresDesktopAnchor h2 {
+    color: #FFF;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.5px;
+  }
+
+  #features .featuresDesktopAnchor p {
+    color: var(--soft-pink);
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.75;
+    margin: 0;
   }
 
   #features #featureCards {
     display: block;
-    width: 100%;
+    width: auto;
+    flex-grow: 1;
     overflow-x: hidden; 
     scroll-snap-type: none;
-    padding: 30px 0;
+    padding: 0;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
     mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
   }
@@ -722,7 +780,7 @@ header {
     flex-direction: row !important;
     flex-wrap: nowrap !important;
     width: max-content; 
-    padding: 0 5%;
+    padding: 0;
     gap: 32px;
   }
 
@@ -797,5 +855,9 @@ header {
 
   #featureCards .cardActionLinks:hover .arrow {
     transform: translateX(5px);
+  }
+
+  #features #featureButtonTabs {
+    display: none;
   }
 }
